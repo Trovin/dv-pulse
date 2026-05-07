@@ -1,27 +1,48 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Menubar from 'primevue/menubar';
-import NxWelcome from './NxWelcome.vue';
 
-const activeView = ref<'start' | null>(null);
-
-const items = [
+const items = ref([
   {
-    label: 'Start page',
-    command: () => {
-      activeView.value = 'start';
-    },
+    label: 'DASHBOARD',
+    icon: 'pi pi-home',
+    route: '/'
   },
-];
+  {
+    label: 'AI INTEGRATION',
+    icon: 'pi pi-spin pi-cog',
+    route: '/integration'
+  },
+  {
+    label: 'DOCS',
+    icon: 'pi pi-file',
+    route: '/integration'
+  }
+]);
+
 </script>
 
 <template>
   <header>
-    <Menubar :model="items" />
-    <p v-if="activeView === null">Select a page from the menu</p>
+    <Menubar :model="items">
+      <template #item="{ item, props }">
+        <router-link custom :to="item.route" v-slot="{ href, navigate }">
+          <a :href="href" v-bind="props.action" @click="navigate">
+            <span :class="item.icon"></span>
+            <span>{{ item.label }}</span>
+          </a>
+        </router-link>
+      </template>
+    </Menubar>
   </header>
 
-  <main>
-    <NxWelcome v-if="activeView === 'start'" title="frontend" />
+  <main class="dv-main">
+    <RouterView />
   </main>
 </template>
+
+<style>
+  .dv-main {
+    padding: 20px;
+  }
+</style>
