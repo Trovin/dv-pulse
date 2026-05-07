@@ -1,5 +1,6 @@
 # STAGE0
 
+
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 ✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
@@ -19,6 +20,22 @@ For example:
 ```sh
 npx nx build myproject
 ```
+
+## Commands
+
+## FRONTEND
+npx nx serve frontend
+npx nx build frontend
+npx nx lint frontend
+npx nx test frontend
+npx nx typecheck frontend
+
+## BACKEND
+npx nx serve api
+npx nx build api
+npx nx lint api
+npx nx test api
+npx nx preview api
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
