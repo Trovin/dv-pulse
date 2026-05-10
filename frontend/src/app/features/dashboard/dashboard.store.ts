@@ -7,7 +7,7 @@ type DashboardState = {
 
 export const useDashboardStore = defineStore('dashboard', {
   state: (): DashboardState => ({
-    pageTitle: 'Dashboard %^&№',
+    pageTitle: 'Dashboard %^&№$',
     loading: false,
   }),
 
