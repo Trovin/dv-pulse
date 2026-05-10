@@ -5,6 +5,6 @@ import App from './App.vue';
 describe('App', () => {
   it('renders properly', async () => {
     const wrapper = mount(App, {});
-    expect(wrapper.text()).toContain('Welcome frontend 👋');
+    expect(wrapper.text()).toContain('GIT COMMIT STATS');
   });
 });

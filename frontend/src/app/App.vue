@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import NxWelcome from './NxWelcome.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <h1>GIT COMMIT STATS</h1>
