@@ -33,38 +33,10 @@ jobs:
       - run: npx nx fix-ci
         if: always()
 
-  changes:
-    runs-on: ubuntu-latest
-    outputs:
-      frontend: ${{ steps.filter.outputs.frontend }}
-      api: ${{ steps.filter.outputs.api }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            frontend:
-              - 'frontend/**'
-              - 'Dockerfile'
-              - '.dockerignore'
-              - 'package.json'
-              - 'package-lock.json'
-              - 'nx.json'
-            api:
-              - 'api/**'
-              - 'Dockerfile.api'
-              - '.dockerignore'
-              - 'package.json'
-              - 'package-lock.json'
-              - 'nx.json'
-
   docker-frontend:
     runs-on: ubuntu-latest
-    needs: [main, changes]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && needs.changes.outputs.frontend == 'true'
+    needs: main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v4
@@ -78,10 +50,18 @@ jobs:
       - name: Push Frontend Docker image
         run: docker push ruslankulyhin/frontend:latest
 
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Redeploy Railway Frontend
+        run: railway redeploy --service frontend --yes
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
   docker-api:
     runs-on: ubuntu-latest
-    needs: [main, changes]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && needs.changes.outputs.api == 'true'
+    needs: main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v4
@@ -94,3 +74,11 @@ jobs:
 
       - name: Push API Docker image
         run: docker push ruslankulyhin/api:latest
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Redeploy Railway API
+        run: railway redeploy --service api --yes
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
