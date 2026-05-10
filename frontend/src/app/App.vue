@@ -1,5 +1,6 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <h1>GIT COMMIT STATS</h1>
+  <NxWelcome title="frontend" />
 </template>
