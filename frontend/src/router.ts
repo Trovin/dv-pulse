@@ -6,6 +6,14 @@ export const router = createRouter({
     {
       path: '/',
       component: () => import('./app/features/dashboard/Dashboard.vue'),
-    }
+    },
+    {
+      path: '/integration',
+      component: () => import('./app/features/integration/Integration.vue'),
+    },
+    {
+      path: '/docs',
+      component: () => import('./app/features/docs/Docs.vue'),
+    },
   ],
 });

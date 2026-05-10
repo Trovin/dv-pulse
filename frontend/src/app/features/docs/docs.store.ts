@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia';
 
-type DashboardState = {
+type DocsState = {
   pageTitle: string;
   loading: boolean;
 };
 
-export const useDashboardStore = defineStore('dashboard', {
-  state: (): DashboardState => ({
-    pageTitle: 'Dashboard',
+export const useDocsStore = defineStore('docs', {
+  state: (): DocsState => ({
+    pageTitle: 'Docs',
     loading: false,
   }),
 
@@ -21,3 +21,4 @@ export const useDashboardStore = defineStore('dashboard', {
     },
   },
 });
+

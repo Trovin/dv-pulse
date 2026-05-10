@@ -16,7 +16,7 @@ const items = ref([
   {
     label: 'DOCS',
     icon: 'pi pi-file',
-    route: '/integration'
+    route: '/docs'
   }
 ]);
 
