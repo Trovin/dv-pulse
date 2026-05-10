@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia';
 
-type DashboardState = {
+type IntegrationState = {
   pageTitle: string;
   loading: boolean;
 };
 
-export const useDashboardStore = defineStore('dashboard', {
-  state: (): DashboardState => ({
-    pageTitle: 'Dashboard',
+export const useIntegrationStore = defineStore('integration', {
+  state: (): IntegrationState => ({
+    pageTitle: 'AI Integration',
     loading: false,
   }),
 
@@ -21,3 +21,4 @@ export const useDashboardStore = defineStore('dashboard', {
     },
   },
 });
+
