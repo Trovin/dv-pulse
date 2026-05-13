@@ -1,0 +1,33 @@
+# Секреты
+.env
+.env.*
+*.env
+
+# Зависимости
+node_modules/
+
+# Билды
+dist/
+build/
+.nuxt/
+
+# Логи
+*.log
+logs/
+
+# База данных
+*.sqlite
+*.db
+
+# Ключи и сертификаты
+*.pem
+*.key
+*.cert
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
