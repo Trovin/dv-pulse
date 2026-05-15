@@ -1,6 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+</script>
 
 <template>
-  <h1>GIT COMMIT STATS</h1>
-  <NxWelcome title="frontend" />
+  <main class="dv-main">
+    <RouterView />
+  </main>
 </template>
+
+<style>
+.dv-main {
+  padding: 20px;
+}
+</style>

@@ -7,7 +7,7 @@ type IntegrationState = {
 
 export const useIntegrationStore = defineStore('integration', {
   state: (): IntegrationState => ({
-    pageTitle: 'AI Integration',
+    pageTitle: '@Claude',
     loading: false,
   }),
 
