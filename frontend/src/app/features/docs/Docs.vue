@@ -6,5 +6,14 @@ const docsStore = useDocsStore();
 
 <template>{{ docsStore.pageTitle }}</template>
 
-<style scoped></style>
+<style scoped>
+.docs {
+  color: red;
+  font-size: 16px;
+  margin: auto auto auto;
+  display: flex;
+  background: #fff;
+  padding: 10px 20px;
+}
+</style>
 
